@@ -1,0 +1,51 @@
+db.alunos.find({
+    nome: "Fellipe"
+})
+
+db.alunos.find({
+    "nome": "Fellipe",
+    "habilidades.nome": "inglês"
+})
+
+
+db.alunos.find({
+    "curso.nome": "sistemas de informação"
+})
+
+db.alunos.find({
+    "curso.nome": "Engenharia Química"
+})
+
+
+db.alunos.find({
+    $or: [
+        {"curso.nome": "sistemas de informação"},
+        {"curso.nome": "Engenharia Química"}
+    ]
+})
+
+
+db.alunos.find({
+    $or: [
+        {"curso.nome": "sistemas de informação"},
+        {"curso.nome": "Engenharia Química"},
+        {"nome": "Daniela"}
+    ]
+})
+
+
+db.alunos.find({
+    $or: [
+        {"curso.nome": "sistemas de informação"},
+        {"curso.nome": "Engenharia Química"},
+        {"curso.nome": "Moda"}
+    ],
+    "nome": "Daniela"
+})
+
+
+db.alunos.find({
+    "curso.nome": {
+        $in : ["sistemas de informação", "Engenharia Química"]
+    } 
+})
